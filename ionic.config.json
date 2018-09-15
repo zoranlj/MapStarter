@@ -1,0 +1,7 @@
+{
+  "name": "MapStarter",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

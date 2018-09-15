@@ -1,0 +1,64 @@
+{
+  "components": [
+    {
+      "tag": "l-map",
+      "dependencies": [],
+      "componentClass": "LMap",
+      "componentPath": "components/l-map/l-map.js",
+      "styles": {
+        "$": {
+          "stylePaths": [
+            "../node_modules/leaflet/dist/leaflet.css",
+            "components/l-map/l-map.css"
+          ]
+        }
+      },
+      "props": [
+        {
+          "name": "center",
+          "type": "String",
+          "attr": "center"
+        },
+        {
+          "name": "iconurl",
+          "type": "String",
+          "attr": "iconurl"
+        },
+        {
+          "name": "locations",
+          "type": "String",
+          "attr": "locations",
+          "watch": [
+            "handleLocationsChanged"
+          ]
+        },
+        {
+          "name": "tilelayer",
+          "type": "String",
+          "attr": "tilelayer"
+        },
+        {
+          "name": "zoom",
+          "type": "String",
+          "attr": "zoom"
+        }
+      ],
+      "hostElement": {
+        "name": "LMapHTMLElement"
+      },
+      "events": [
+        {
+          "event": "message"
+        }
+      ],
+      "shadow": true
+    }
+  ],
+  "collections": [],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "0.12.4",
+    "typescriptVersion": "2.9.2"
+  },
+  "bundles": []
+}
