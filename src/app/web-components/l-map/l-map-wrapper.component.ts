@@ -7,11 +7,8 @@ import { AlertController } from '@ionic/angular';
   selector: 'l-map-wrapper',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  template: `
-      <div (message)="handleMessageEvent($event)" style="height: 100%">
-          <ng-content></ng-content>
-      </div>
-  `
+  templateUrl: 'l-map-wrapper.component.html',
+    styleUrls: ['l-map-wrapper.component.scss']
 })
 export class LMapWrapperComponent {
 
