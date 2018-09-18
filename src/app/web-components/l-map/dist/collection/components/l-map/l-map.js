@@ -1,5 +1,10 @@
 import L from 'leaflet';
 export class LMap {
+    handleLTileLayerChanged(tileLayerUrl) {
+        console.log('l-map handleLTileLayerChanged');
+        console.log('l-map tileLayerUrl', tileLayerUrl);
+        this.tileLayer.setUrl(tileLayerUrl);
+    }
     handleLocationsChanged(locations) {
         console.log('l-map handleLocationsChanged');
         this.addMarkers(JSON.parse(locations));
@@ -9,7 +14,7 @@ export class LMap {
     }
     componentDidLoad() {
         console.log('l-map componentDidLoad');
-        console.log('l-map tilelayer', this.tileLayer);
+        console.log('l-map tileLayerUrl', this.tileLayerUrl);
         console.log('l-map iconurl', this.iconUrl);
         console.log('l-map locations', this.locations);
         console.log('l-map center', this.center);
@@ -19,8 +24,8 @@ export class LMap {
         const LMapElement = this.LMapHTMLElement.shadowRoot.querySelector('#l-map');
         this.LMap = L.map(LMapElement, { minZoom: Number(this.minZoom), maxZoom: Number(this.maxZoom), maxBounds: [[-90, -180], [90, 180]] })
             .setView(JSON.parse(this.center), Number(this.zoom));
-        const tilelayer = L.tileLayer(this.tileLayer);
-        tilelayer.addTo(this.LMap);
+        this.tileLayer = L.tileLayer(this.tileLayerUrl);
+        this.tileLayer.addTo(this.LMap);
         this.LMap.on('click', (e) => {
             console.log('l-map component send location message');
             this.message.emit(e.latlng.lat + ", " + e.latlng.lng);
@@ -65,9 +70,10 @@ export class LMap {
             "type": String,
             "attr": "min-zoom"
         },
-        "tileLayer": {
+        "tileLayerUrl": {
             "type": String,
-            "attr": "tile-layer"
+            "attr": "tile-layer-url",
+            "watchCallbacks": ["handleLTileLayerChanged"]
         },
         "zoom": {
             "type": String,

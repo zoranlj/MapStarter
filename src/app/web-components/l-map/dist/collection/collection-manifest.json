@@ -43,9 +43,12 @@
           "attr": "min-zoom"
         },
         {
-          "name": "tileLayer",
+          "name": "tileLayerUrl",
           "type": "String",
-          "attr": "tile-layer"
+          "attr": "tile-layer-url",
+          "watch": [
+            "handleLTileLayerChanged"
+          ]
         },
         {
           "name": "zoom",

@@ -9,11 +9,27 @@ import { LocationsProvider } from '../../providers/locations/locations';
 export class HomePage {
 
     tileLayers = [
-        'http://a.tile.stamen.com/toner/{z}/{x}/{y}.png',
-        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-        'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
-        'https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+        {
+            value: 'toner',
+            url: 'http://a.tile.stamen.com/toner/{z}/{x}/{y}.png'
+
+        }, {
+            value: 'openstreetmap',
+            url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+
+        }, {
+            value: 'watercolor',
+            url: 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg'
+
+        }, {
+            value: 'bw',
+            url: 'https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+
+        }
     ];
+
+    selectedTileLayer = this.tileLayers[3];
+
     iconUrl = 'https://zoranlj.000webhostapp.com/modities-map/Modus-Mark-White.png';
     locations: string;
     center = '[0,-80]';
