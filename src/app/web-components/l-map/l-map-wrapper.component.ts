@@ -1,5 +1,3 @@
-import '../../../assets/lib/l-map/dist';
-
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
