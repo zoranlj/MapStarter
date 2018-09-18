@@ -8,10 +8,12 @@ import { LocationsProvider } from '../../providers/locations/locations';
 })
 export class HomePage {
 
-    // tileLayer = 'http://a.tile.stamen.com/toner/{z}/{x}/{y}.png';
-    // tileLayer = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    // tileLayer = 'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg';
-    tileLayer = 'https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
+    tileLayers = [
+        'http://a.tile.stamen.com/toner/{z}/{x}/{y}.png',
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+        'http://{s}.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg',
+        'https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
+    ];
     iconUrl = 'https://zoranlj.000webhostapp.com/modities-map/Modus-Mark-White.png';
     locations: string;
     center = '[0,-80]';
