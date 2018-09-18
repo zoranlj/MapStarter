@@ -20,9 +20,9 @@
           "attr": "center"
         },
         {
-          "name": "iconurl",
+          "name": "iconUrl",
           "type": "String",
-          "attr": "iconurl"
+          "attr": "icon-url"
         },
         {
           "name": "locations",
@@ -33,9 +33,19 @@
           ]
         },
         {
-          "name": "tilelayer",
+          "name": "maxZoom",
           "type": "String",
-          "attr": "tilelayer"
+          "attr": "max-zoom"
+        },
+        {
+          "name": "minZoom",
+          "type": "String",
+          "attr": "min-zoom"
+        },
+        {
+          "name": "tileLayer",
+          "type": "String",
+          "attr": "tile-layer"
         },
         {
           "name": "zoom",

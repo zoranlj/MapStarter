@@ -9,15 +9,17 @@ export class LMap {
     }
     componentDidLoad() {
         console.log('l-map componentDidLoad');
-        console.log('l-map tilelayer', this.tilelayer);
-        console.log('l-map iconurl', this.iconurl);
+        console.log('l-map tilelayer', this.tileLayer);
+        console.log('l-map iconurl', this.iconUrl);
         console.log('l-map locations', this.locations);
         console.log('l-map center', this.center);
         console.log('l-map zoom', this.zoom);
+        console.log('l-map min zoom', this.minZoom);
+        console.log('l-map max zoom', this.maxZoom);
         const LMapElement = this.LMapHTMLElement.shadowRoot.querySelector('#l-map');
-        this.LMap = L.map(LMapElement, { minZoom: 2, maxZoom: 6, maxBounds: [[-90, -180], [90, 180]] })
+        this.LMap = L.map(LMapElement, { minZoom: Number(this.minZoom), maxZoom: Number(this.maxZoom), maxBounds: [[-90, -180], [90, 180]] })
             .setView(JSON.parse(this.center), Number(this.zoom));
-        const tilelayer = L.tileLayer(this.tilelayer);
+        const tilelayer = L.tileLayer(this.tileLayer);
         tilelayer.addTo(this.LMap);
         this.LMap.on('click', (e) => {
             console.log('l-map component send location message');
@@ -27,7 +29,7 @@ export class LMap {
     }
     addMarkers(locations) {
         const modusLogo = L.icon({
-            iconUrl: this.iconurl,
+            iconUrl: this.iconUrl,
             iconSize: [30, 30]
         });
         let marker;
@@ -43,9 +45,9 @@ export class LMap {
             "type": String,
             "attr": "center"
         },
-        "iconurl": {
+        "iconUrl": {
             "type": String,
-            "attr": "iconurl"
+            "attr": "icon-url"
         },
         "LMapHTMLElement": {
             "elementRef": true
@@ -55,9 +57,17 @@ export class LMap {
             "attr": "locations",
             "watchCallbacks": ["handleLocationsChanged"]
         },
-        "tilelayer": {
+        "maxZoom": {
             "type": String,
-            "attr": "tilelayer"
+            "attr": "max-zoom"
+        },
+        "minZoom": {
+            "type": String,
+            "attr": "min-zoom"
+        },
+        "tileLayer": {
+            "type": String,
+            "attr": "tile-layer"
         },
         "zoom": {
             "type": String,

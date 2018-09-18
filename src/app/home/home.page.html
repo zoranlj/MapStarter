@@ -1,19 +1,21 @@
-<!--<ion-header>-->
-  <!--<ion-toolbar>-->
-    <!--<ion-title>-->
-      <!--Map Starter-->
-    <!--</ion-title>-->
-  <!--</ion-toolbar>-->
-<!--</ion-header>-->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Map Starter
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
   <l-map-wrapper>
     <l-map
-      tilelayer='{{tilelayer}}'
-      iconurl='{{iconurl}}'
+      tileLayer='{{tileLayer}}'
+      iconUrl='{{iconUrl}}'
       locations='{{locations}}'
       center='{{center}}'
-      zoom='{{zoom}}'>
+      zoom='{{zoom}}'
+      minZoom='{{minZoom}}'
+      maxZoom='{{maxZoom}}'>
     </l-map>
   </l-map-wrapper>
 </ion-content>
