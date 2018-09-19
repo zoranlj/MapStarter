@@ -7,22 +7,21 @@
 </ion-header>
 
 <ion-content>
+    <l-map-wrapper>
+        <l-map
+            tileLayerUrl='{{selectedTileLayer.url}}'
+            iconUrl='{{iconUrl}}'
+            locations='{{locations}}'
+            center='{{center}}'
+            zoom='{{zoom}}'
+            minZoom='{{minZoom}}'
+            maxZoom='{{maxZoom}}'>
+        </l-map>
+    </l-map-wrapper>
     <ion-item>
         <ion-label>Tile layer</ion-label>
-        <ion-select interface="alert" placeholder="Select One" [(ngModel)]="selectedTileLayer">
+        <ion-select interface="action-sheet" placeholder="Select One" [(ngModel)]="selectedTileLayer">
             <ion-select-option *ngFor="let tileLayer of tileLayers" [value]="tileLayer">{{tileLayer.value}}</ion-select-option>
         </ion-select>
     </ion-item>
-
-    <l-map-wrapper>
-        <l-map
-          tileLayerUrl='{{selectedTileLayer.url}}'
-          iconUrl='{{iconUrl}}'
-          locations='{{locations}}'
-          center='{{center}}'
-          zoom='{{zoom}}'
-          minZoom='{{minZoom}}'
-          maxZoom='{{maxZoom}}'>
-        </l-map>
-  </l-map-wrapper>
 </ion-content>
