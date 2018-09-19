@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 import { AlertController } from '@ionic/angular';
 
 @Component({
-  selector: 'l-map-wrapper',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
-  templateUrl: 'l-map-wrapper.component.html',
+    selector: 'l-map-wrapper',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    templateUrl: 'l-map-wrapper.component.html',
     styleUrls: ['l-map-wrapper.component.scss']
 })
 export class LMapWrapperComponent {
