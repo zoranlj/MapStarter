@@ -1,5 +1,5 @@
 # MapStarter
-## An Ionic 4, Angular 6, StencilJS MapStarter project powered by LeafletJS and Esri
+## An Ionic 4 Angular 6 StencilJS MapStarter project powered by LeafletJS and Esri
 
 ### Run the project
 Install the dependencies:
@@ -21,3 +21,6 @@ $ ionic lab
 
 [Esri Leaflet](https://esri.github.io/esri-leaflet/)
 
+[Tile servers](https://wiki.openstreetmap.org/wiki/Tile_servers)
+
+[Map Compare](https://mc.bbbike.org/mc/)
