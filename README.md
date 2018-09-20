@@ -1,5 +1,6 @@
 # MapStarter
-## An Ionic 4 Angular 6 StencilJS MapStarter project powered by LeafletJS and Esri
+## An Ionic 4 Angular 6 StencilJS MapStarter project powered by LeafletJS and Esri*.
+*Esri Leaflet plugin included in LMap StencilJS Web Component (optional).
 
 ### Run the project
 Install the dependencies:
@@ -13,6 +14,9 @@ $ ionic lab
 ```
 
 ### Useful links
+
+[LMap](https://github.com/zoranlj/LMap)
+
 [Ionic](https://ionicframework.com/)
 
 [StencilJS](https://stenciljs.com/)
