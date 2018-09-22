@@ -26,7 +26,7 @@ export class LMapWrapperComponent {
     }
 
     handleMessageEvent(e) {
-        this.presentAlert(e);
+        // this.presentAlert(e);
         console.log('Received message from l-map component: ', e.detail);
     }
 }

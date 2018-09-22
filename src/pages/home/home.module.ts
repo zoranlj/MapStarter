@@ -4,8 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { ComponentsModule } from '../components/components.module';
-import { WebComponentsModule } from '../web-components/web-components.module';
+import { ComponentsModule } from '../../components/components.module';
+import { WebComponentsModule } from '../../web-components/web-components.module';
 
 import { HomePage } from './home.page';
 

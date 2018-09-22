@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LocationsProvider } from '../../providers/locations/locations';
+import { LocationsService } from '../../services/locations/locations';
 
 @Component({
     selector: 'app-home',
@@ -37,11 +37,11 @@ export class HomePage {
     minZoom = '2';
     maxZoom = '16';
 
-    constructor(private locationsProvider: LocationsProvider) {
+    constructor(private locationsService: LocationsService) {
     }
 
     ionViewDidEnter(): void {
-        this.locationsProvider.get().subscribe(({values}: any) => {
+        this.locationsService.get().subscribe(({values}: any) => {
             this.locations = JSON.stringify(values);
         });
     }

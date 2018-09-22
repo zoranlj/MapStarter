@@ -7,8 +7,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { LocationsProvider } from '../providers/locations/locations';
-import { WebComponentsModule } from './web-components/web-components.module';
+import { LocationsService } from '../services/locations/locations';
+import { WebComponentsModule } from '../web-components/web-components.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +27,7 @@ import { AppRoutingModule } from './app-routing.module';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    LocationsProvider
+    LocationsService
   ],
   bootstrap: [AppComponent]
 })
