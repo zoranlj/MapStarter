@@ -19,15 +19,3 @@
         </l-map>
     </l-map-wrapper>
 </ion-content>
-
-<ion-footer>
-    <ion-toolbar>
-        <ion-item>
-            <ion-label>Tile layer</ion-label>
-            <ion-select interface="action-sheet" placeholder="Select One" [(ngModel)]="selectedTileLayer">
-                <ion-select-option *ngFor="let tileLayer of tileLayers" [value]="tileLayer">{{tileLayer.value}}
-                </ion-select-option>
-            </ion-select>
-        </ion-item>
-    </ion-toolbar>
-</ion-footer>

@@ -35,7 +35,7 @@ export class HomePage {
     center = '[25,-85]';
     zoom = '2';
     minZoom = '2';
-    maxZoom = '6';
+    maxZoom = '16';
 
     constructor(private locationsProvider: LocationsProvider) {
     }

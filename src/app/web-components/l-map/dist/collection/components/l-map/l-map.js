@@ -1,9 +1,10 @@
 import L from 'leaflet';
+import esri from '../../../node_modules/esri-leaflet/dist/esri-leaflet';
+L.esri = esri;
 export class LMap {
-    handleLTileLayerChanged(tileLayerUrl) {
-        console.log('l-map handleLTileLayerChanged');
-        console.log('l-map tileLayerUrl', tileLayerUrl);
-        this.tileLayer.setUrl(tileLayerUrl);
+    constructor() {
+        this.layerGroupTiles = L.layerGroup();
+        this.layerGroupLocations = L.layerGroup();
     }
     handleLocationsChanged(locations) {
         console.log('l-map handleLocationsChanged');
@@ -22,25 +23,47 @@ export class LMap {
         console.log('l-map min zoom', this.minZoom);
         console.log('l-map max zoom', this.maxZoom);
         const LMapElement = this.LMapHTMLElement.shadowRoot.querySelector('#l-map');
-        this.LMap = L.map(LMapElement, { zoomControl: false, minZoom: Number(this.minZoom), maxZoom: Number(this.maxZoom), maxBounds: [[-90, -180], [90, 180]] })
-            .setView(JSON.parse(this.center), Number(this.zoom));
-        this.tileLayer = L.tileLayer(this.tileLayerUrl);
-        this.tileLayer.addTo(this.LMap);
-        this.LMap.on('click', (e) => {
-            console.log('l-map component send location message');
-            this.message.emit(e.latlng.lat + ", " + e.latlng.lng);
+        const tileLayer = L.tileLayer(this.tileLayerUrl).addTo(this.layerGroupTiles);
+        const esriNationalGeographic = L.esri.basemapLayer('NationalGeographic').addTo(this.layerGroupTiles);
+        if (this.locations.length) {
+            this.addMarkers(JSON.parse(this.locations));
+        }
+        let esriFeatureLayerStates = L.esri.featureLayer({
+            url: 'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_States_Generalized/FeatureServer/0',
+            style: function () {
+                return { color: '#545454', weight: 1 };
+            },
+            useCors: false
         });
-        this.addMarkers(JSON.parse(this.locations));
+        this.LMap = L.map(LMapElement, {
+            zoomControl: false,
+            minZoom: Number(this.minZoom),
+            maxZoom: Number(this.maxZoom),
+            maxBounds: [[-90, -180], [90, 180]],
+            layers: [this.layerGroupTiles, this.layerGroupLocations, esriFeatureLayerStates],
+        })
+            .setView(JSON.parse(this.center), Number(this.zoom))
+            .on('click', (e) => {
+            console.log('l-map component send location message');
+            this.message.emit(e.latlng.lat + ', ' + e.latlng.lng);
+        });
+        const baseMaps = {
+            'Custom Tile Layer': tileLayer,
+            'Esri National Geographic': esriNationalGeographic
+        };
+        const overlayMaps = {
+            'Custom Locations': this.layerGroupLocations,
+            'Esri States': esriFeatureLayerStates
+        };
+        L.control.layers(baseMaps, overlayMaps).addTo(this.LMap);
     }
     addMarkers(locations) {
         const modusLogo = L.icon({
             iconUrl: this.iconUrl,
             iconSize: [30, 30]
         });
-        let marker;
         locations.map(latLng => {
-            marker = L.marker(latLng, { icon: modusLogo });
-            marker.addTo(this.LMap);
+            L.marker(latLng, { icon: modusLogo }).addTo(this.layerGroupLocations);
         });
     }
     static get is() { return "l-map"; }
@@ -72,8 +95,7 @@ export class LMap {
         },
         "tileLayerUrl": {
             "type": String,
-            "attr": "tile-layer-url",
-            "watchCallbacks": ["handleLTileLayerChanged"]
+            "attr": "tile-layer-url"
         },
         "zoom": {
             "type": String,

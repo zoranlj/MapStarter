@@ -45,10 +45,7 @@
         {
           "name": "tileLayerUrl",
           "type": "String",
-          "attr": "tile-layer-url",
-          "watch": [
-            "handleLTileLayerChanged"
-          ]
+          "attr": "tile-layer-url"
         },
         {
           "name": "zoom",
