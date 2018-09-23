@@ -32,7 +32,7 @@ export class HomePage {
 
     iconUrl = 'https://zoranlj.000webhostapp.com/modities-map/Modus-Mark-White.png';
     locations: string;
-    center = '[25,-85]';
+    center = '[10,-85]';
     zoom = '2';
     minZoom = '2';
     maxZoom = '16';
