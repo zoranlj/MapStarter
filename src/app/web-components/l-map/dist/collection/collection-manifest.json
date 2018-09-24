@@ -5,14 +5,7 @@
       "dependencies": [],
       "componentClass": "LMap",
       "componentPath": "components/l-map/l-map.js",
-      "styles": {
-        "$": {
-          "stylePaths": [
-            "../node_modules/leaflet/dist/leaflet.css",
-            "components/l-map/l-map.css"
-          ]
-        }
-      },
+      "styles": {},
       "props": [
         {
           "name": "center",

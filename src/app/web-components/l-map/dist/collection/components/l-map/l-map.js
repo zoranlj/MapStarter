@@ -109,5 +109,4 @@ export class LMap {
             "cancelable": true,
             "composed": true
         }]; }
-    static get style() { return "/**style-placeholder:l-map:**/"; }
 }
