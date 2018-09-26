@@ -1,4 +1,4 @@
-import { defineCustomElements } from './l-map/dist/esm/es5/l-map.define.js';
+import { defineCustomElements } from './l-map/esm';
 
 export function appInitialize() {
   return () => {
