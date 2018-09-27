@@ -2,7 +2,7 @@
 <widget id="com.moduscreate.map.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MapStarter</name>
     <description>An awesome Ionic/Cordova app.</description>
-    <author email="zoranlj@gmail.com" href="http://ionicframework.com/">Zoran Ljubinkovic</author>
+    <author email="zoran.ljubinkovic@moduscreate.com" href="http://moduscreate.com/">Zoran Ljubinkovic</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
