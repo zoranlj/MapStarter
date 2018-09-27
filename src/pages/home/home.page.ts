@@ -31,7 +31,9 @@ export class HomePage {
     selectedTileLayer = this.tileLayers[3];
 
     iconUrl = 'https://zoranlj.000webhostapp.com/modities-map/Modus-Mark-White.png';
+    currentLocationIconUrl = 'https://zoranlj.000webhostapp.com/modities-map/Modus-Mark-Black.png';
     locations: string;
+    currentLocation = '[0,0]';
     center = '[10,-85]';
     zoom = '2';
     minZoom = '2';
