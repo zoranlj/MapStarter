@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { EMPTY } from 'rxjs';
 /*
   Generated class for the LocationsService provider.
 
@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LocationsService {
 
-  apiKey = 'AIzaSyCs2CRt0SqmWGYhU-W9BkhgynUj27dEXHE';
+  apiKey: string; // https://developers.google.com/sheets/api/guides/authorizing#APIKey
   spreadsheetId = '1xNaJnOxZFmMbg6KnXELHNgmJSJ5zNUEeMkqUsvgmrfE';
   configUrl = `https://sheets.googleapis.com/v4/spreadsheets/${this.spreadsheetId}/values/Sheet1?key=${this.apiKey}`;
 
@@ -19,7 +19,7 @@ export class LocationsService {
   }
 
   get() {
-    return this.http.get(this.configUrl);
+      return this.apiKey ? this.http.get(this.configUrl) : EMPTY;
   }
 
 }
